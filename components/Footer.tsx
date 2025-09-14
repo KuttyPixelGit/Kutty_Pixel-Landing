@@ -93,15 +93,31 @@ interface ContactCardProps {
   children?: React.ReactNode;
 }
 const ContactCard: React.FC<ContactCardProps> = ({ href, icon: Icon, title, content, isDarkMode, children }) => {
-  const baseClasses = `group flex flex-col items-center p-8 rounded-3xl backdrop-blur-md border-2 transition-all duration-500 hover:scale-105 hover:-translate-y-4`;
-  const darkModeClasses = "bg-black/20 border-[#D4AF37]/20 hover:border-[#D4AF37]/60 text-white";
-  const lightModeClasses = "bg-white/60 border-[#B8860B]/30 hover:border-[#B8860B]/70 text-black";
+  const baseClasses = `group flex flex-col items-center p-8 rounded-3xl backdrop-blur-md border-2 transition-all duration-500 hover:scale-105 hover:-translate-y-2 relative z-0`;
+  const darkModeClasses = "bg-black/30 border-[#D4AF37]/20 hover:border-[#D4AF37]/60 text-white";
+  const lightModeClasses = "bg-white/70 border-[#B8860B]/30 hover:border-[#B8860B]/70 text-black";
   const iconDarkMode = "text-[#D4AF37] group-hover:text-[#FFD700]";
   const iconLightMode = "text-[#B8860B] group-hover:text-[#DAA520]";
-  const cardContent = (<> {Icon && <Icon className={`w-12 h-12 mb-4 transition-all duration-300 ${isDarkMode ? iconDarkMode : iconLightMode}`} />} {children} <span className={`text-lg font-bold mb-2 ${isDarkMode ? "text-white" : "text-black"}`}>{title}</span> <span className={`text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>{content}</span> </>);
-  const style = { boxShadow: isDarkMode ? "0 10px 40px rgba(212, 175, 55, 0.1)" : "0 10px 40px rgba(184, 134, 11, 0.2)" };
-  if (href) { return <a href={href} className={`${baseClasses} ${isDarkMode ? darkModeClasses : lightModeClasses}`} style={style}>{cardContent}</a>; }
-  return <div className={`${baseClasses} ${isDarkMode ? darkModeClasses : lightModeClasses}`} style={style}>{cardContent}</div>;
+  
+  const cardContent = (
+    <>
+      {Icon && <Icon className={`w-12 h-12 mb-4 transition-all duration-300 ${isDarkMode ? iconDarkMode : iconLightMode}`} />}
+      {children}
+      <span className={`text-lg font-bold mb-2 ${isDarkMode ? "text-white" : "text-black"}`}>{title}</span>
+      <span className={`text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>{content}</span>
+    </>
+  );
+
+  const glowEffect = isDarkMode 
+    ? "after:content-[''] after:absolute after:inset-0 after:rounded-3xl after:animate-[logoGlowPulse_4s_ease-in-out_infinite_alternate] after:hover:animate-[logoGlowPulse_3s_ease-in-out_infinite_alternate] after:pointer-events-none after:-z-10"
+    : "after:content-[''] after:absolute after:inset-0 after:rounded-3xl after:animate-[logoGlowPulseLight_4s_ease-in-out_infinite_alternate] after:hover:animate-[logoGlowPulseLight_3s_ease-in-out_infinite_alternate] after:pointer-events-none after:-z-10";
+
+  const cardClasses = `relative ${baseClasses} ${isDarkMode ? darkModeClasses : lightModeClasses} ${glowEffect} transition-all duration-500`;
+  
+  if (href) {
+    return <a href={href} className={cardClasses}>{cardContent}</a>;
+  }
+  return <div className={cardClasses}>{cardContent}</div>;
 };
 
 // Fix: Update icon prop type to accept a className.

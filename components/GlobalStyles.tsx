@@ -28,8 +28,24 @@ const GlobalStyles: React.FC<{ isDarkMode: boolean }> = () => {
         to { filter: drop-shadow(0 0 16px rgba(212,175,55,0.45)); }
       }
       @keyframes logoGlowPulse {
-        0%, 100% { filter: drop-shadow(0 0 16px rgba(212,175,55,0.45)); }
-        50% { filter: drop-shadow(0 0 24px rgba(212,175,55,0.65)); }
+        0%, 100% { 
+          box-shadow: 0 0 10px 2px rgba(212,175,55,0.6), 
+                      0 0 20px 5px rgba(212,175,55,0.4); 
+        }
+        50% { 
+          box-shadow: 0 0 15px 4px rgba(212,175,55,0.8), 
+                      0 0 30px 10px rgba(212,175,55,0.5);
+        }
+      }
+      @keyframes logoGlowPulseLight {
+        0%, 100% { 
+          box-shadow: 0 0 10px 2px rgba(184, 134, 11, 0.5), 
+                      0 0 20px 5px rgba(184, 134, 11, 0.3);
+        }
+        50% { 
+          box-shadow: 0 0 15px 4px rgba(184, 134, 11, 0.7), 
+                      0 0 30px 10px rgba(184, 134, 11, 0.4);
+        }
       }
       @keyframes dotsBlink {
         50% {
