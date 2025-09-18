@@ -133,7 +133,13 @@ const ContactInfo = ({ isDarkMode }: { isDarkMode: boolean }) => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ContactCard href="mailto:contact@kuttypixel.ca" icon={MailIcon} title="Email" content="contact@kuttypixel.ca" isDarkMode={isDarkMode} />
         <ContactCard href="tel:+13825779990" icon={PhoneIcon} title="Phone" content="+1 382 577 9990" isDarkMode={isDarkMode} />
-        <ContactCard icon={LocationIcon} title="Location" content="Canada" isDarkMode={isDarkMode} />
+        <ContactCard 
+          href="https://maps.app.goo.gl/hSqFSchuYbGzGqzu8" 
+          icon={LocationIcon} 
+          title="Location" 
+          content="Toronto, ON, Canada" 
+          isDarkMode={isDarkMode} 
+        />
         <ContactCard title="Social" content="Follow Us" isDarkMode={isDarkMode}>
           <div className="flex gap-4 mb-4">
             <SocialLink href="https://instagram.com/kutty.pixel" icon={InstagramIcon} isDarkMode={isDarkMode} />
