@@ -70,7 +70,7 @@ const ContactForm = ({ isDarkMode }: { isDarkMode: boolean }) => {
             </div>
             <textarea name="message" placeholder="Your Message (Optional)" value={formData.message} onChange={handleChange} rows={5} className={`${inputClasses} resize-none`} style={boxShadowStyle} />
             <div className="text-center">
-              <button type="submit" disabled={status === 'submitting'} className={`px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 mx-auto ${isDarkMode ? "bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black hover:from-[#FFD700] hover:to-[#FFA500]" : "bg-gradient-to-r from-[#B8860B] to-[#DAA520] text-white hover:from-[#DAA520] hover:to-[#FF8C00]"}`} style={{ boxShadow: `0 15px 40px ${isDarkMode ? "rgba(212, 175, 55, 0.4)" : "rgba(184, 134, 11, 0.5)"}`, animation: status === 'submitting' ? "spin 1s linear infinite" : "pulseGlow 2s infinite" }}>
+              <button type="submit" disabled={status === 'submitting'} className={`px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 mx-auto ${isDarkMode ? "bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black hover:from-[#FFD700] hover:to-[#FFA500]" : "bg-gradient-to-r from-[#B8860B] to-[#DAA520] text-white hover:from-[#DAA520] hover:to-[#FF8C00]"}`} style={{ boxShadow: `0 15px 40px ${isDarkMode ? "rgba(212, 175, 55, 0.4)" : "rgba(184, 134, 11, 0.5)"}`, animation: "pulseGlow 2s infinite" }}>
                 {status === 'submitting' ? "Sending..." : <><SendIcon /> Send Message</>}
               </button>
             </div>
