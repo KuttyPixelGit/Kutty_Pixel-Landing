@@ -54,7 +54,7 @@ const EffectsBackground: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) =>
 
   return (
     <div className="fixed inset-0 -z-10">
-      <div className={`fixed inset-0 pointer-events-none ${isDarkMode ? "bg-gradient-to-br from-black via-gray-950 to-black" : "bg-gradient-to-br from-white via-gray-50 to-gray-100"}`} />
+      <div className={`fixed inset-0 pointer-events-none ${isDarkMode ? "bg-gradient-to-br from-[#080808] via-gray-950 to-[#080808]" : "bg-gradient-to-br from-white via-gray-50 to-gray-100"}`} />
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute -top-36 -left-36 w-80 h-80 rounded-full blur-2xl opacity-10" style={{ backgroundColor: isDarkMode ? "#D4AF37" : "#B8860B", transform: translate(12) }} />
         <div className="absolute -bottom-40 -right-32 w-64 h-64 rounded-full blur-2xl opacity-6" style={{ backgroundColor: isDarkMode ? "#FFD700" : "#DAA520", transform: translate(-10) }} />

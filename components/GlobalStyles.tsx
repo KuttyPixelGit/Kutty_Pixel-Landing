@@ -103,10 +103,259 @@ const GlobalStyles: React.FC<{ isDarkMode: boolean }> = () => {
           box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6);
         }
       }
+      
+      @keyframes glowPulseDark {
+        0%, 100% {
+          box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), 0 0 30px rgba(212, 175, 55, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+      }
+      
+      @keyframes glowPulseLight {
+        0%, 100% {
+          box-shadow: 0 0 15px rgba(184, 134, 11, 0.15), 0 0 30px rgba(184, 134, 11, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(184, 134, 11, 0.3), 0 0 40px rgba(184, 134, 11, 0.2);
+        }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
       @keyframes particleFloat {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { transform: translateY(-40px) scale(0.5); opacity: 0; }
+      }
+      
+      @keyframes glassFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      
+      @keyframes neonPulse {
+        0%, 100% { 
+          opacity: 0.8;
+          box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.2), 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        50% { 
+          opacity: 1;
+          box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.4), 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+      }
+      
+      @keyframes innerGlow {
+        0% { opacity: 0.5; transform: scale(0.95); }
+        100% { opacity: 0.8; transform: scale(1.05); }
+      }
+      
+      @keyframes textGlow {
+        0%, 100% { 
+          text-shadow: 0 0 10px rgba(255, 230, 128, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        50% { 
+          text-shadow: 0 0 15px rgba(255, 230, 128, 0.8), 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+      }
+      
+      @keyframes hologramPulse {
+        0%, 100% {
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.3);
+          transform: perspective(1000px) rotateX(5deg);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), 0 0 60px rgba(0, 0, 0, 0.4);
+          transform: perspective(1000px) rotateX(5deg) translateY(-2px);
+        }
+      }
+      
+      @keyframes gridPulse {
+        0%, 100% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(1.02);
+        }
+      }
+      
+      @keyframes hologramGlow {
+        0%, 100% {
+          opacity: 0.3;
+          transform: scale(0.98);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.02);
+        }
+      }
+      
+      @keyframes digitalFlicker {
+        0%, 2%, 4%, 6%, 8%, 10%, 12%, 14%, 16%, 100% {
+          opacity: 1;
+          text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 25px rgba(255, 184, 28, 0.7);
+        }
+        1%, 3%, 5%, 7%, 9%, 11%, 13%, 15% {
+          opacity: 0.9;
+          text-shadow: 0 0 5px rgba(255, 215, 0, 0.7), 0 0 15px rgba(255, 184, 28, 0.5);
+        }
+      }
+      
+      @keyframes scanline {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes edgePulse {
+        0%, 100% {
+          box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.3);
+          border-color: rgba(255, 215, 0, 0.3);
+        }
+        50% {
+          box-shadow: inset 0 0 25px rgba(255, 215, 0, 0.5);
+          border-color: rgba(255, 215, 0, 0.5);
+        }
+      }
+      
+      @keyframes colonPulse {
+        0%, 100% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+      
+      @keyframes particleFloat {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-80px) translateX(10px);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes crystalFloat {
+        0%, 100% { 
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+        }
+        25% { 
+          transform: rotateX(5deg) rotateY(10deg) rotateZ(2deg); 
+        }
+        50% { 
+          transform: rotateX(-5deg) rotateY(-10deg) rotateZ(-2deg); 
+        }
+        75% { 
+          transform: rotateX(5deg) rotateY(-5deg) rotateZ(3deg); 
+        }
+      }
+      
+      @keyframes textShine {
+        0% { 
+          background-position: 0% 50%;
+          filter: brightness(0.9);
+        }
+        100% { 
+          background-position: 100% 50%;
+          filter: brightness(1.1);
+        }
+      }
+      
+      @keyframes edgeGlow {
+        0%, 100% { 
+          opacity: 0.2;
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+        50% { 
+          opacity: 0.5;
+          box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+      }
+      
+      @keyframes lightReflection {
+        0%, 100% { 
+          opacity: 0;
+          transform: 'translateZ(15px) translate(-50%, -50%)';
+        }
+        20%, 80% { 
+          opacity: 0.6;
+          transform: 'translateZ(15px) translate(0, 0)';
+        }
+        50% { 
+          opacity: 0.8;
+          transform: 'translateZ(15px) translate(20%, 20%)';
+        }
+      }
+      
+      @keyframes crystalPulse {
+        0%, 100% { 
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% { 
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes liquidShine {
+        0% {
+          transform: translateX(-100%) rotate(-45deg);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.3;
+        }
+        40% {
+          opacity: 0.1;
+        }
+        60% {
+          opacity: 0.05;
+        }
+        80% {
+          opacity: 0.01;
+        }
+        100% {
+          transform: translateX(100%) rotate(-45deg);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes mercuryPulse {
+        0%, 100% {
+          box-shadow: 
+            0 0 10px rgba(212, 175, 55, 0.3),
+            0 0 20px rgba(212, 175, 55, 0.2),
+            inset 0 2px 3px rgba(255, 255, 255, 0.1);
+        }
+        50% {
+          box-shadow: 
+            0 0 15px rgba(212, 175, 55, 0.4),
+            0 0 30px rgba(212, 175, 55, 0.3),
+            inset 0 2px 3px rgba(255, 255, 255, 0.2);
+        }
       }
 
       /* Custom scrollbar for dark mode */
