@@ -232,7 +232,7 @@ const MainContent: React.FC<HeroSectionProps> = ({ isDarkMode, showContent }) =>
           Where <span className={`font-bold ${isDarkMode ? "text-[#D4AF37]" : "text-[#B8860B]"}`}>Creativity gets upgraded</span>.
         </p>
         <CountdownTimer 
-          targetDate={new Date('2026-01-01T00:00:00')} 
+          targetDate={new Date('2026-08-01T00:00:00')} 
           isDarkMode={isDarkMode} 
         />
         <div className="mt-4">
